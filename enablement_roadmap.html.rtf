@@ -1,0 +1,543 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;\f2\fnil\fcharset0 AppleColorEmoji;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import React, \{ useState \} from 'react';\
+import \{ Target, DollarSign, TrendingUp, BookOpen, Users, Lightbulb, BarChart, Wrench, CheckCircle \} from 'lucide-react';\
+\
+const TeamEnablementFramework = () => \{\
+  const [expandedSection, setExpandedSection] = useState(null);\
+\
+  const sections = [\
+    \{\
+      id: 'goals',\
+      title: 'Goals & Compensation',\
+      icon: Target,\
+      color: 'blue',\
+      items: [\
+        \{ \
+          number: '1.1',\
+          title: 'Clear Revenue Goal',\
+          description: 'Every rep knows their individual quota and team targets'\
+        \},\
+        \{ \
+          number: '1.2',\
+          title: 'Clear Comp Plan & Quarterly Bonuses',\
+          description: 'Transparent commission structure with performance-based quarterly bonuses'\
+        \},\
+        \{ \
+          number: '1.3',\
+          title: 'Competitive Accelerators',\
+          description: 'Higher commission rates for reps who exceed 100% quota attainment'\
+        \},\
+        \{ \
+          number: '1.4',\
+          title: 'Pre-approved Monthly Entertainment Allowance',\
+          description: 'Budget for prospect lunches, coffee meetings, and relationship building'\
+        \}\
+      ]\
+    \},\
+    \{\
+      id: 'career',\
+      title: 'Career Development',\
+      icon: TrendingUp,\
+      color: 'green',\
+      items: [\
+        \{ \
+          number: '2.1',\
+          title: 'Career Progression Path',\
+          description: 'Clear framework from AE 
+\f1 \uc0\u8594 
+\f0  Sr. AE 
+\f1 \uc0\u8594 
+\f0  Account Director 
+\f1 \uc0\u8594 
+\f0  Sales Manager'\
+        \}\
+      ]\
+    \},\
+    \{\
+      id: 'messaging',\
+      title: 'Messaging & Positioning',\
+      icon: BookOpen,\
+      color: 'purple',\
+      items: [\
+        \{ \
+          number: '3.1',\
+          title: 'ICP & Messaging',\
+          description: 'Defined ideal customer profile and value propositions for each segment'\
+        \},\
+        \{ \
+          number: '3.2',\
+          title: 'Use Cases',\
+          description: 'Real-world examples and success stories organized by industry/persona'\
+        \},\
+        \{ \
+          number: '3.3',\
+          title: 'Standard Collaterals',\
+          description: 'Sales deck, outreach scripts, discovery scripts, objection handling, competitive battle cards'\
+        \}\
+      ]\
+    \},\
+    \{\
+      id: 'coaching',\
+      title: 'Coaching & Development',\
+      icon: Users,\
+      color: 'orange',\
+      items: [\
+        \{ \
+          number: '4.1',\
+          title: 'Coaching & 1:1s',\
+          description: 'Regular one-on-one sessions for skill development and performance improvement'\
+        \},\
+        \{ \
+          number: '4.2',\
+          title: 'Top Deal Reviews',\
+          description: 'Collaborative sessions to strategize closing approaches for key opportunities'\
+        \}\
+      ]\
+    \},\
+    \{\
+      id: 'process',\
+      title: 'Sales Process & Execution',\
+      icon: BarChart,\
+      color: 'indigo',\
+      items: [\
+        \{ \
+          number: '5.1',\
+          title: 'Weekly Sales Activities',\
+          description: 'Structured cadence for pipeline reviews, forecast calls, and team syncs'\
+        \},\
+        \{ \
+          number: '5.2',\
+          title: 'Clear Outbound Sales (ABM) Sequence / Channels',\
+          description: 'Multi-channel outreach sequences optimized for target accounts'\
+        \}\
+      ]\
+    \},\
+    \{\
+      id: 'tools',\
+      title: 'Tools & Resources',\
+      icon: Wrench,\
+      color: 'red',\
+      items: [\
+        \{ \
+          number: '6.1',\
+          title: 'Streamlined Tech Stack & Sales Cycle',\
+          description: 'Integrated tools (Clay, LinkedIn, Gong) and defined sales stages with clear exit criteria'\
+        \},\
+        \{ \
+          number: '6.2',\
+          title: 'Resources (Dedicated Engineer)',\
+          description: 'Engineering support for rapid prototypes and POCs for qualified prospects'\
+        \}\
+      ]\
+    \}\
+  ];\
+\
+  const colorClasses = \{\
+    blue: \{\
+      bg: 'from-blue-50 to-blue-100',\
+      icon: 'text-blue-600',\
+      badge: 'bg-blue-600',\
+      border: 'border-blue-200',\
+      hover: 'hover:border-blue-400'\
+    \},\
+    green: \{\
+      bg: 'from-green-50 to-green-100',\
+      icon: 'text-green-600',\
+      badge: 'bg-green-600',\
+      border: 'border-green-200',\
+      hover: 'hover:border-green-400'\
+    \},\
+    purple: \{\
+      bg: 'from-purple-50 to-purple-100',\
+      icon: 'text-purple-600',\
+      badge: 'bg-purple-600',\
+      border: 'border-purple-200',\
+      hover: 'hover:border-purple-400'\
+    \},\
+    orange: \{\
+      bg: 'from-orange-50 to-orange-100',\
+      icon: 'text-orange-600',\
+      badge: 'bg-orange-600',\
+      border: 'border-orange-200',\
+      hover: 'hover:border-orange-400'\
+    \},\
+    indigo: \{\
+      bg: 'from-indigo-50 to-indigo-100',\
+      icon: 'text-indigo-600',\
+      badge: 'bg-indigo-600',\
+      border: 'border-indigo-200',\
+      hover: 'hover:border-indigo-400'\
+    \},\
+    red: \{\
+      bg: 'from-red-50 to-red-100',\
+      icon: 'text-red-600',\
+      badge: 'bg-red-600',\
+      border: 'border-red-200',\
+      hover: 'hover:border-red-400'\
+    \}\
+  \};\
+\
+  return (\
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-6">\
+      <div className="max-w-6xl mx-auto">\
+        \{/* Header */\}\
+        <div className="bg-white rounded-lg shadow-xl p-8 mb-8">\
+          <div className="flex items-start gap-4">\
+            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">\
+              <Lightbulb className="w-8 h-8 text-white" />\
+            </div>\
+            <div className="flex-1">\
+              <h1 className="text-4xl font-bold text-gray-800 mb-2">Sales Team Enablement Framework</h1>\
+              <p className="text-lg text-gray-600 mb-4">\
+                Essential components to set your sales team up for success\
+              </p>\
+              <div className="flex gap-3 text-sm">\
+                <div className="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg">\
+                  <CheckCircle className="w-4 h-4 text-blue-600" />\
+                  <span className="font-medium text-blue-800">\{sections.reduce((acc, s) => acc + s.items.length, 0)\} Components</span>\
+                </div>\
+                <div className="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">\
+                  <Target className="w-4 h-4 text-green-600" />\
+                  <span className="font-medium text-green-800">\{sections.length\} Categories</span>\
+                </div>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+\
+        \{/* Overview Grid */\}\
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">\
+          \{sections.map((section) => \{\
+            const colors = colorClasses[section.color];\
+            const IconComponent = section.icon;\
+            \
+            return (\
+              <div\
+                key=\{section.id\}\
+                className=\{`bg-gradient-to-br $\{colors.bg\} rounded-lg shadow-lg p-6 border-2 $\{colors.border\} $\{colors.hover\} transition-all cursor-pointer`\}\
+                onClick=\{() => setExpandedSection(expandedSection === section.id ? null : section.id)\}\
+              >\
+                <div className="flex items-start gap-3 mb-4">\
+                  <div className=\{`w-12 h-12 $\{colors.badge\} rounded-lg flex items-center justify-center flex-shrink-0`\}>\
+                    <IconComponent className="w-6 h-6 text-white" />\
+                  </div>\
+                  <div className="flex-1">\
+                    <h3 className="text-xl font-bold text-gray-800 mb-1">\{section.title\}</h3>\
+                    <div className="text-sm text-gray-600">\{section.items.length\} component\{section.items.length > 1 ? 's' : ''\}</div>\
+                  </div>\
+                </div>\
+                <div className="space-y-2">\
+                  \{section.items.map((item) => (\
+                    <div key=\{item.number\} className="flex items-start gap-2">\
+                      <span className=\{`text-xs font-bold $\{colors.icon\} mt-0.5`\}>\{item.number\}</span>\
+                      <span className="text-sm text-gray-700 font-medium">\{item.title\}</span>\
+                    </div>\
+                  ))\}\
+                </div>\
+              </div>\
+            );\
+          \})\}\
+        </div>\
+\
+        \{/* Detailed View */\}\
+        <div className="bg-white rounded-lg shadow-xl p-8">\
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Detailed Breakdown</h2>\
+          \
+          <div className="space-y-6">\
+            \{sections.map((section) => \{\
+              const colors = colorClasses[section.color];\
+              const IconComponent = section.icon;\
+              \
+              return (\
+                <div key=\{section.id\} className="border-b border-gray-200 pb-6 last:border-b-0">\
+                  <div className="flex items-center gap-3 mb-4">\
+                    <div className=\{`w-10 h-10 $\{colors.badge\} rounded-lg flex items-center justify-center`\}>\
+                      <IconComponent className="w-5 h-5 text-white" />\
+                    </div>\
+                    <h3 className="text-xl font-bold text-gray-800">\{section.title\}</h3>\
+                  </div>\
+                  \
+                  <div className="space-y-3 ml-13">\
+                    \{section.items.map((item) => (\
+                      <div key=\{item.number\} className="flex gap-4">\
+                        <div className=\{`w-12 h-12 bg-gradient-to-br $\{colors.bg\} rounded-lg flex items-center justify-center flex-shrink-0`\}>\
+                          <span className=\{`text-sm font-bold $\{colors.icon\}`\}>\{item.number\}</span>\
+                        </div>\
+                        <div className="flex-1 pt-1">\
+                          <h4 className="font-semibold text-gray-800 mb-1">\{item.title\}</h4>\
+                          <p className="text-sm text-gray-600">\{item.description\}</p>\
+                        </div>\
+                      </div>\
+                    ))\}\
+                  </div>\
+                </div>\
+              );\
+            \})\}\
+          </div>\
+        </div>\
+\
+        \{/* Implementation Checklist */\}\
+        <div className="mt-8 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg shadow-xl p-8 text-white">\
+          <h2 className="text-2xl font-bold mb-6">6-Month Implementation Roadmap</h2>\
+          \
+          <div className="space-y-6">\
+            \{/* Month 1 */\}\
+            <div className="bg-white bg-opacity-10 rounded-lg p-6">\
+              <div className="flex items-center gap-3 mb-4">\
+                <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center font-bold">M1</div>\
+                <h3 className="font-bold text-xl">Month 1: Foundation</h3>\
+              </div>\
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Clear Revenue Goal</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Comp Goals, Hiring Strategy & Comp Plan</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>ICP & Messaging</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Tech Stack Setup</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>V1 Collaterals + Top Use Case by Industry</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>ABM Sequence Kick off</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Streamlined Sales Process</span>\
+                </li>\
+              </ul>\
+            </div>\
+\
+            \{/* Month 2 */\}\
+            <div className="bg-white bg-opacity-10 rounded-lg p-6">\
+              <div className="flex items-center gap-3 mb-4">\
+                <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center font-bold">M2</div>\
+                <h3 className="font-bold text-xl">Month 2: Execution & Hiring</h3>\
+              </div>\
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Hiring (2 new AEs)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Weekly Outbound Cadence/Activities</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Track Engagement Signals</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Weekly Deal Reviews</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Coaching & 1:1s</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Messaging Refinement for New Campaigns</span>\
+                </li>\
+              </ul>\
+            </div>\
+\
+            \{/* Month 3 */\}\
+            <div className="bg-white bg-opacity-10 rounded-lg p-6">\
+              <div className="flex items-center gap-3 mb-4">\
+                <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center font-bold">M3</div>\
+                <h3 className="font-bold text-xl">Month 3: Team Building & First Win</h3>\
+              </div>\
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Onboarding & Training New Hires Completed</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Scaling Team Activities</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>1:1s and Deal Reviews</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span><strong>Close My First Deal</strong> to Earn Team & Leadership Trust</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>All Hands on Execution</span>\
+                </li>\
+              </ul>\
+            </div>\
+\
+            \{/* Month 4 */\}\
+            <div className="bg-white bg-opacity-10 rounded-lg p-6">\
+              <div className="flex items-center gap-3 mb-4">\
+                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold">M4</div>\
+                <h3 className="font-bold text-xl">Month 4: Optimize & Scale</h3>\
+              </div>\
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Performance Tracking & Conversion Signals</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Scale Opportunity Volume & Pipeline Coverage (All Channels)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Host 1 Panel Discussion + 1 Dinner with Target Prospects</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Optimize/Refine ICP Messaging & Client Engagement</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>1-2 Prototypes Created for Potential Customers</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>1 Video per Rep Posted (LinkedIn + YouTube)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Feedback Loop to Marketing (Optimize ABM Ads & Target List)</span>\
+                </li>\
+              </ul>\
+            </div>\
+\
+            \{/* Month 5 */\}\
+            <div className="bg-white bg-opacity-10 rounded-lg p-6">\
+              <div className="flex items-center gap-3 mb-4">\
+                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">M5</div>\
+                <h3 className="font-bold text-xl">Month 5: Team Success & Patterns</h3>\
+              </div>\
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span><strong>Close Team's First Large Deal</strong></span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Share, Educate & Scale Success Patterns (Sales Cycle) Across All AEs</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Scale Outreach (Number of Leads per Rep)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>1 Panel Discussion + 1 Dinner with Target Prospects</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>1 Video per Rep Posted (LinkedIn + YouTube)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Feedback Loop to Marketing (Optimize ABM Ads & Target List)</span>\
+                </li>\
+              </ul>\
+            </div>\
+\
+            \{/* Month 6 */\}\
+            <div className="bg-white bg-opacity-10 rounded-lg p-6 border-2 border-green-400">\
+              <div className="flex items-center gap-3 mb-4">\
+                <div className="w-10 h-10 bg-green-400 rounded-full flex items-center justify-center font-bold text-slate-800">M6</div>\
+                <h3 className="font-bold text-xl">Month 6: Repeatable GTM Machine 
+\f2 \uc0\u55356 \u57263 
+\f0 </h3>\
+              </div>\
+              <div className="mb-4 bg-green-500 bg-opacity-20 rounded-lg p-3">\
+                <p className="text-sm font-semibold">
+\f2 \uc0\u55356 \u57225 
+\f0  Hit Monthly MRR Target - Scalable GTM Architecture Established</p>\
+              </div>\
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span><strong>Clear GTM Architecture & Strategy</strong> Ready to Be Repeated & Scaled</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span><strong>Converting Outbound Lead Gen Machine</strong> Created</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Field Marketing Calendar with Bi-Monthly Events (Community-Led Sales)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Scale Prospect Dinners & On-Site Visits</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span>Feedback Loop to Marketing (Optimize ABM Ads & Target List)</span>\
+                </li>\
+                <li className="flex items-start gap-2">\
+                  <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />\
+                  <span><strong>Hit Key Metrics:</strong> 4-Month Sales Cycle, 20% Win Rate, Increased ACV</span>\
+                </li>\
+              </ul>\
+            </div>\
+          </div>\
+\
+          \{/* Key Milestones Summary */\}\
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">\
+            <div className="bg-red-500 bg-opacity-20 rounded-lg p-4 border border-red-400">\
+              <div className="font-bold mb-2 flex items-center gap-2">\
+                <span className="text-2xl">
+\f2 \uc0\u55356 \u57263 
+\f0 </span>\
+                <span>Month 3 Milestone</span>\
+              </div>\
+              <p className="text-sm">Close first deal + increase quota attainment across all current AEs</p>\
+            </div>\
+            <div className="bg-blue-500 bg-opacity-20 rounded-lg p-4 border border-blue-400">\
+              <div className="font-bold mb-2 flex items-center gap-2">\
+                <span className="text-2xl">
+\f2 \uc0\u55357 \u56496 
+\f0 </span>\
+                <span>Month 5 Milestone</span>\
+              </div>\
+              <p className="text-sm">New hire closes their first deal - proving onboarding & training success</p>\
+            </div>\
+            <div className="bg-green-500 bg-opacity-20 rounded-lg p-4 border border-green-400">\
+              <div className="font-bold mb-2 flex items-center gap-2">\
+                <span className="text-2xl">
+\f2 \uc0\u55357 \u56960 
+\f0 </span>\
+                <span>Month 6 Milestone</span>\
+              </div>\
+              <p className="text-sm">Hit MRR target with repeatable GTM machine</p>\
+            </div>\
+          </div>\
+        </div>\
+      </div>\
+    </div>\
+  );\
+\};\
+\
+export default TeamEnablementFramework;}
